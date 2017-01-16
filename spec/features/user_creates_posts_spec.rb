@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "Creating posts" do
-	let(:user) { User.create(:username => "exampleuser", :email => "example@emerge.art.br", :password => "password", :password_confirmation => "password")}
+	let(:user) {create(:user) }
 	scenario "successfully" do
 		sign_in user
 		visit root_path
@@ -11,9 +11,11 @@ RSpec.describe "Creating posts" do
 
 		click_on "Publish"
 
+		save_and_open_page
+
 		within(".posts") do
 			expect(page).to have_content "My first beautifull post"
-			expect(page).to have_content "exampleuser"
+			expect(page).to have_content user.username 
 			expect(page).to have_content "My awesome content made with heart in heaven"
 		end
 	end
