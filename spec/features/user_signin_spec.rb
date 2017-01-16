@@ -6,6 +6,7 @@ RSpec.feature "User signing in" do
 	end
 	scenario "successfully" do
 		sign_in @user	
+		expect(page).to have_content @user.email
 	end
 	scenario "unsuccesfully" do
 		visit new_user_session_path
