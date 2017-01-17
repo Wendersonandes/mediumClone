@@ -1,4 +1,6 @@
-<%= post.username %>
-<br>
-<h3><%= post.title %></h3>
-<p><%= post.body %></p>
+<div class="post-panel">
+	<%= avatar_for(post.user, :size => 40)%>
+	<%= post.username %>
+	<h3><%= post.title %></h3>
+	<p><%= post.all_tags %></p>
+	</div>
