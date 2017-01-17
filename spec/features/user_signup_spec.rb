@@ -9,6 +9,7 @@ RSpec.describe "User signing up" do
 		click_on "Sign up"
 
 		expect(page).to have_content "example@emerge.art.br"
+		expect(page).to have_content "Sign out"
 	end
 	scenario "unsuccessfully" do
 		visit new_user_registration_path
