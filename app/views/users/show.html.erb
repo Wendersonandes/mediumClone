@@ -2,4 +2,9 @@
 
 <%= avatar_for(@user) %>
 <%= @user.description %>
-<%= link_to "Edit", edit_user_path(@user) %>
+<% if user_signed_in? && current_user?(@user) %>
+	<%= link_to "Edit", edit_user_path(@user) %>
+<% end %>
+<% if user_signed_in? && !current_user?(@user) %>
+	<button>Follow</button>
+<% end %>
